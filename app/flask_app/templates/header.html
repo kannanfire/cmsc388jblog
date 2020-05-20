@@ -1,0 +1,19 @@
+{% block header %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <link rel="stylesheet" href="static/custom.css">
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <a href="/account">Account</a>
+        <a href="/about">About</a>
+        <a href="/logout">Logout</a>
+      </div>
+      <h1 style="text-align: center;">BlogBook</h1>
+</nav>
+
+<div class="container">
+  {% block content %}{% endblock %}
+</div>
+{% endblock %}
+

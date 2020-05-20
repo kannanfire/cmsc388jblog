@@ -1,0 +1,43 @@
+{% extends "header.html" %}
+{% block content %}
+{% for post in posts %}
+    <h3>Title: {{ post.title }}</h3>
+    <br>
+    By:  {{ post.username }}
+    <br>
+    Date: {{ post.date }}
+    <br>
+    {{ post.content }}
+    <br>
+
+    <h4>Comments</h4>
+
+    <form method="POST" action="">
+    {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.content.label }}
+        {{ form.content(class="form-control") }}
+        {% if form.content.errors %}
+        <div class="alert alert-warning" role="alert">
+          {% for error in form.content.errors %}
+          <span>{{ error }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {{ form.submit() }}
+    </form>
+    
+    <br>
+    {% for comment in comments %}
+    <br>
+        {{ comment.username }} at {{comment.date}}
+        <br>
+        {{ comment.content }}
+        <br>
+    {% endfor %} 
+{% endfor %}
+
+
+
+{% endblock %}

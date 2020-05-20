@@ -1,0 +1,31 @@
+{% extends "header.html" %}
+{% block content %}
+
+{% if current_user.is_authenticated %}
+<div class="row">
+    <div class="col">
+        <a href="{{ url_for('blogpost') }}">
+            Create New Post! (This option is also in your account page.)
+        </a>
+    </div>
+</div>
+{% endif %}
+
+{% if posts %}
+    <ol>
+        {% for post in posts %}
+            <li class="list-group-item">
+                <a href="{{ url_for('postpage', title=post.title) }}">
+                {{ post.title }}-{{ post.username }}
+                </a>
+            </li><br>
+        {% endfor %}
+    </ol>
+
+{% else %}
+
+    <h2>There are no posts to be seen at this time. Please add some of your own!</h2>
+
+{% endif %}
+
+{% endblock %}
