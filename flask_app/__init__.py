@@ -10,7 +10,7 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-app.config['MONGO_URI'] = 'mongodb://heroku_6km76xcj:v48rkplsl0k6u11jqv47ulaur0@ds157946.mlab.com:57946/heroku_6km76xcj' # ?retryWrites=false'
+app.config['MONGOLAB_URI'] = 'mongodb://heroku_6km76xcj:v48rkplsl0k6u11jqv47ulaur0@ds157946.mlab.com:57946/heroku_6km76xcj' # ?retryWrites=false'
 app.config['SECRET_KEY'] = b'\x020;yr\x91\x11\xbe"\x9d\xc1\x14\x91\xadf\xec'
 
 db = MongoEngine(app)
